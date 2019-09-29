@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+		用户名:<input type="text" id="in1"><span id="sp"></span>
+		      <br>
+                  密  码:<input type="password" id="in2">
+              <br>
+    <button id="btn">注册</button>
+    <script>
+        var in1=document.getElementById('in1');   
+        var in2=document.getElementById('in2');
+        var btn=document.getElementById('btn');
+        var sp=document.getElementById('sp');
+		var a=['tom','jack','lili'];
+
+        in1.onblur=function(){
+				if(a.indexOf(in1.value)!=-1){
+				    sp.innerHTML="用户名已被注册";
+				} else if (in1.value=='') {
+				    sp.innerHTML="用户名不可为空";
+				}else{
+				    sp.innerHTML="用户名可用";
+				}
+        }
+		in1.onfocus=function(){             
+          a.indexOf(in1.value)!=-1 ? sp.innerHTML="用户名已被注册" : sp.innerHTML="请输入用户名";
+		}
+        in2.onblur = function(){
+         	if(in2.value == ''){
+         		alert('密码不能为空');
+         	}
+        }
+        btn.onclick = function(){
+         	if(in1.value=='' && in2.value==''){
+         		alert('用户名和密码不能为空');
+         	}else if(a.indexOf(in1.value)!=-1){
+         		alert('注册失败');
+         	}else if(in2.value==''){
+         		alert('请输入密码');
+         	}else{
+         		alert('注册成功');
+         	}
+        }
+    </script>
+	</body>
+</html>
